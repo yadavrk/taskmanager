@@ -1,0 +1,8 @@
+<!--<h1>Comments#new</h1>-->
+<!--<p>Find me in app/views/comments/new.html.erb</p>-->
+<h1>New Comment</h1>
+<%= form_for [@project, @task, @comment] do |f|%>
+  <%= f.label :comment_text%>
+  <%= f.text_field :comment_text%><br>
+  <br>  <%= f.submit %>
+<% end %>

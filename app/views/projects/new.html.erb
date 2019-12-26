@@ -1,0 +1,23 @@
+<!--<h1>Projects#new</h1>-->
+<!--<p>Find me in app/views/projects/new.html.erb</p>-->
+<!--<h1>New Project</h1>-->
+<%#= form_tag '/projects/create' do %>
+  <%#= label_tag :name%>
+  <%#= text_field_tag :name %>
+  <%#= label_tag :description%>
+  <%#= text_field_tag :description%>
+  <%#= submit_tag "Create"%>
+<%#end%>
+<% if logged_in? %>
+  <h3>You are Logged In, <%= current_user.name %></h3>
+  <%= link_to 'Log Out', logout_path %>
+<%end%>
+<h1>New Project</h1>
+<%= form_for @project do |f|%>
+  <%= f.label :name%><br>
+  <%= f.text_field :name%><br>
+  <%= f.label :description%><br>
+  <%= f.text_field :description%>
+  <br>  <%= f.submit %>
+<% end %>
+

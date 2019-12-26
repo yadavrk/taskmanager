@@ -1,0 +1,20 @@
+<% if logged_in? %>
+  <h3>You are Logged In, <%= current_user.name %></h3>
+  <%= link_to 'Log Out', logout_path %>
+<%end%>
+<h1> <%=@task.name %> </h1>
+<table>
+  <tr>
+    <th>Comment Text</th>
+  </tr>
+  <% if @comments.size > 0 %>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.comment_text %></td>
+        <td><%= link_to 'Delete', project_task_comments_path(@task.project_id, task_id: @task.id, comment_id: comment.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
+<%#= link_to 'Back', project_path(@task.project_id) %>
+<%= button_to "Add New Comment", new_project_task_comments_path(@task.project_id, task_id: @task.id), method: :get%>

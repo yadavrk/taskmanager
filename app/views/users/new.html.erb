@@ -1,0 +1,17 @@
+<!--<h1>Users#new</h1>-->
+<!--<p>Find me in app/views/users/new.html.erb</p>-->
+<% if logged_in? %>
+  <h3>You are Logged In, <%= current_user.name %></h3>
+  <%= link_to 'Log Out', logout_path %>
+<%end%>
+
+<h1>Sign Up</h1>
+<%= form_for @user do |f|%>
+  <%= f.label :name%><br>
+  <%= f.text_field :name%><br>
+  <%= f.label :email%><br>
+  <%= f.text_field :email%><br>
+  <%= f.label :password%><br>
+  <%= f.password_field :password%>
+  <br>  <%= f.submit %>
+<%end%>

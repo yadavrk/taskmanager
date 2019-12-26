@@ -1,0 +1,21 @@
+<!--<h1>Tasks#new</h1>-->
+<!--<p>Find me in app/views/tasks/new.html.erb</p>-->
+<% if logged_in? %>
+  <h3>You are Logged In, <%= current_user.name %></h3>
+  <%= link_to 'Log Out', logout_path %>
+<%end%>
+
+<h1>New Task</h1>
+<%= form_for [@project, @task] do |f|%>
+  <%= f.label :name%>
+  <%= f.text_field :name%><br>
+  <%= f.label :description%>
+  <%= f.text_field :description%><br>
+  <%= f.label :priority%>
+  <%= f.text_field :priority%><br>
+  <%= f.label :deadline%>
+  <%= f.text_field :deadline%><br>
+  <%= f.label :status%>
+  <%= f.text_field :status%><br>
+  <br>  <%= f.submit %>
+<% end %>

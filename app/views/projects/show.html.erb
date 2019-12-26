@@ -1,0 +1,28 @@
+<% if logged_in? %>
+  <h3>You are Logged In, <%= current_user.name %></h3>
+  <%= link_to 'Log Out', logout_path %>
+<%end%>
+<h1> <%=@project.name %> </h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Priority</th>
+    <th>Deadline</th>
+    <th>Status</th>
+  </tr>
+  <% if @tasks.size > 0 %>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.name %></td>
+        <td><%= task.description %></td>
+        <td><%= task.priority %></td>
+        <td><%= task.deadline %></td>
+        <td><%= task.status %></td>
+        <td><%= link_to 'Show', project_task_path(@project.id,  id: task.id) %></td>
+        <td><%= link_to 'Delete', project_task_path(@project.id, task_id: task.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>
+<%= button_to "Add New Task", new_project_task_path(@project.id), method: :get%>
