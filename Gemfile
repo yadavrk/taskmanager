@@ -31,9 +31,6 @@ gem 'jbuilder', '~> 2.5'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-gem 'omniauth'
-gem 'omniauth-google-oauth2'
-gem 'google_sign_in'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
